@@ -102,6 +102,13 @@ export default function HomeScreen() {
                             />
                         ))}
                     </View>
+
+                    <RecommendedRestaurant/>
+                    <RecommendedRestaurant/>
+                    <RecommendedRestaurant/>
+                    <RecommendedRestaurant/>
+                    <RecommendedRestaurant/>
+                    <RecommendedRestaurant/>
                 </Animated.ScrollView>
             </Animated.View>
         </SafeAreaView>
@@ -144,17 +151,19 @@ const styles = StyleSheet.create({
         left: 0, right: 0, bottom: 0,
         backgroundColor: colors.white000,
         overflow: 'hidden',
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
     },
     contentContainer: {
-        padding: 20,
+        marginTop: 20,
         paddingBottom: 40,
     },
     row: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: 12,
-        width: width * 0.9,
-        marginHorizontal: width * 0.05,
+        width: width * 0.8,
+        marginHorizontal: width * 0.1,
     },
     sectionTitle: {
         fontSize: 20,
