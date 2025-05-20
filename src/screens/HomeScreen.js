@@ -8,6 +8,8 @@ const HomeScreen = ({ navigation }) => (
         <Button title="Go to Search" onPress={() => navigation.navigate('SearchScreen')} />
         <Text style={styles.title}>ListScreen</Text>
         <Button title="Go to Search" onPress={() => navigation.navigate('ListScreen')} />
+        <Text style={styles.title}>DetailScreen</Text>
+        <Button title="Go to Search" onPress={() => navigation.navigate('DetailScreen')} />
     </View>
 );
 
