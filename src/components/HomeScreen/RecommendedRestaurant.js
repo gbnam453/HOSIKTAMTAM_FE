@@ -28,9 +28,10 @@ const RecommendedRestaurant = () => {
     ];
 
     return(
-        <Animated.View style={{ zIndex:1, position: 'absolute', top:0 }}>
+        // style={{ zIndex:1, position: 'absolute', top:0 }}
+        <Animated.View >
             <Text style={{fontWeight:'bold', fontSize:20, marginLeft: 10}}>추천 식당</Text>
-            <Animated.ScrollView horizontal={true}>
+            <Animated.ScrollView horizontal={true} style={{height:200}}>
                 {recommended_restaurant.map((item, index) => (
                     <Animated.View key={index} style={styles.recommended_card}>
                         <Image

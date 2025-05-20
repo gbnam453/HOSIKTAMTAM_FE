@@ -72,22 +72,19 @@ const HomeScreen = () => {
             </Animated.View>
 
             {/* Animated White Panel covers SearchBar on scroll */}
-            <Animated.View style={[styles.panel, { top: panelTop, zIndex: 1 }]}>
-                <Animated.ScrollView
-                    style={styles.scroll}
-                    contentContainerStyle={styles.contentContainer}
-                    scrollEventThrottle={16}
-                    onScroll={Animated.event(
-                        [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-                        { useNativeDriver: false }
-                    )}
-                >
-                    {Array.from({ length: 30 }).map((_, i) => (
-                        <Text key={i} style={styles.item}>Item {i + 1}</Text>
-                    ))}
+                <Animated.View style={[styles.panel, { top: panelTop, zIndex: 1 }]}>
+                    <Animated.ScrollView
+                        style={styles.scroll}
+                        contentContainerStyle={styles.contentContainer}
+                        scrollEventThrottle={16}
+                        onScroll={Animated.event(
+                            [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+                            { useNativeDriver: false }
+                        )}
+                    >
+                        <RecommendedRestaurant />
+                    </Animated.ScrollView>
 
-                    <RecommendedRestaurant />
-                </Animated.ScrollView>
             </Animated.View>
 
         </SafeAreaView>
@@ -130,7 +127,6 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     contentContainer: {
-        padding: 20,
         paddingBottom: 40,
     },
     item: {
