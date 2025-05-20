@@ -10,6 +10,7 @@ import {
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import colors from '../styles/colors';
 import SearchBar from '../components/HomeScreen/SearchBar';
+import Colors from '../styles/colors';
 
 const { width, height } = Dimensions.get('window');
 
@@ -37,6 +38,29 @@ const HomeScreen = () => {
 
     const logoSize = height * 0.06;
     const burgerSize = height * 0.03;
+
+    const recommended_restaurant = [
+        {
+            restaurant_name: '진보',
+            categories : '밥/면',
+            time: '09:00 ~ 17:00',
+        },
+        {
+            restaurant_name: '탕화쿵푸',
+            categories : '탕',
+            time: '09:00 ~ 17:00',
+        },
+        {
+            restaurant_name: '용우동',
+            categories : '밥/면?',
+            time: '09:00 ~ 17:00?',
+        },
+        {
+            restaurant_name: '용우동',
+            categories : '밥/면',
+            time: '09:00 ~ 17:00',
+        },
+    ];
 
     return (
         <SafeAreaView style={styles.container} edges={['left', 'right', 'bottom']}>
@@ -83,6 +107,25 @@ const HomeScreen = () => {
                 >
                     {Array.from({ length: 30 }).map((_, i) => (
                         <Text key={i} style={styles.item}>Item {i + 1}</Text>
+                    ))}
+                </Animated.ScrollView>
+            </Animated.View>
+
+            <Animated.View style={{ top: panelTop, zIndex:1 }}>
+                <Animated.ScrollView horizontal={true}>
+                    {recommended_restaurant.map((item, index) => (
+                        <Animated.View key={index} style={styles.recommended_card}>
+                            <Image
+                                style={styles.recommended_image}
+                                source={{ uri: 'https://via.placeholder.com/260x260' }}
+                            />
+                            <Animated.View style={{flexDirection:'row', top: 10, paddingLeft: 5}}>
+                                <Text>{item.restaurant_name}</Text>
+                                <Text> | </Text>
+                                <Text>{item.categories}</Text>
+                            </Animated.View>
+                            <Text style={{top:10, paddingLeft: 5}}>{item.time}</Text>
+                        </Animated.View>
                     ))}
                 </Animated.ScrollView>
             </Animated.View>
@@ -135,5 +178,20 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
         borderBottomWidth: StyleSheet.hairlineWidth,
         borderColor: '#ccc',
+    },
+    recommended_card: {
+        margin: 10,
+        borderWidth:1,
+        borderColor:Colors.gray200,
+        borderRadius: 10,
+        width: 140,
+        height: 200,
+    },
+    recommended_image: {
+        width: 140,
+        height: 140,
+        backgroundColor: Colors.gray600,
+        borderTopRightRadius: 10,
+        borderTopLeftRadius: 10,
     },
 });
