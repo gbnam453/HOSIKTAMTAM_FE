@@ -1,7 +1,7 @@
 // src/screens/ListScreen.js
 import React from 'react';
 import {
-    View, Text, FlatList, StyleSheet,
+    Text, FlatList, StyleSheet,
     SafeAreaView, TouchableOpacity
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -12,16 +12,22 @@ const data = [
         id: '1',
         name: '진보',
         category: '면/밥',
-        image: { uri: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Food_icon.png' }
-    },
+        image: require('../assets/images/SplashScreen/logo.png'),
+
+},
 ];
 
-export default function App() {
+export default function ListScreen() {
     const navigation = useNavigation();
 
     return (
         <SafeAreaView style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity
+                onPress={() => {
+                    if (navigation.canGoBack()) {
+                        navigation.goBack();
+                    }
+                }}>
                 <Text style={styles.header}>{'<'} 면</Text>
             </TouchableOpacity>
 
@@ -46,3 +52,4 @@ const styles = StyleSheet.create({
         marginVertical: 20,
     },
 });
+

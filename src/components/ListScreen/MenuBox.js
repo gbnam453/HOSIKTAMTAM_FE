@@ -1,6 +1,6 @@
 // src/components/ListScreen/MenuBox.js
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 
 export default function MenuBox({ item }) {
     if (!item) return null;
@@ -21,20 +21,27 @@ export default function MenuBox({ item }) {
     );
 }
 
+const screenWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
     itemContainer: {
         flexDirection: 'row',
-        marginBottom: 20,
+        width: '100%',
+        height: screenWidth * 0.4,
+        padding: screenWidth * 0.025,
+        backgroundColor: '#f9f9f9',
+        borderRadius: 12,
+        alignItems: 'center',
+        marginBottom: screenWidth * 0.04,
     },
     image: {
-        width: 100,
-        height: 100,
+        width: screenWidth * 0.35,
+        height: '90%',
         borderRadius: 12,
         backgroundColor: '#eee',
     },
     infoContainer: {
         flex: 1,
-        marginLeft: 12,
+        marginLeft: screenWidth * 0.03,
         justifyContent: 'center',
     },
     titleRow: {
@@ -42,14 +49,15 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     name: {
-        fontSize: 18,
+        fontSize: screenWidth * 0.045,
         fontWeight: 'bold',
     },
     category: {
-        fontSize: 14,
+        fontSize: screenWidth * 0.035,
         color: '#999',
     },
     info: {
+        fontSize: screenWidth * 0.035,
         color: '#666',
         marginTop: 2,
     },
